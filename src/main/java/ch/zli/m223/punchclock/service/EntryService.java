@@ -4,6 +4,7 @@ import ch.zli.m223.punchclock.domain.Entry;
 import ch.zli.m223.punchclock.repository.EntryRepository;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -20,5 +21,13 @@ public class EntryService {
 
     public List<Entry> findAll() {
         return entryRepository.findAll();
+    }
+
+    public void deleteEntry(long id) {
+        entryRepository.deleteById(id);
+    }
+
+    public Entry editEntry(Entry entry) {
+        return  entryRepository.save(entry);
     }
 }
