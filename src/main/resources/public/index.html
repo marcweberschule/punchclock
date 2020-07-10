@@ -18,41 +18,8 @@
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit">Login</button>
+    <button type="submit" onclick="window.open('http://localhost:8081/entries.html')">Login</button>
+
 </div>
-<h1>Parkplatz</h1>
-<div>
-    <label><b>Marke</b></label>
-    <input type="text" placeholder="marke" name="marke" required>
-    <label><b>Fahrzeugnummer</b></label>
-    <input type="number" placeholder="000'000" name="fhzNr" required>
-    <button type="submit">absenden</button>
-</div>
-<h1>Punchclock Entries</h1>
-<form id="entryForm">
-    <label for="checkIn">Check in</label>
-    <input type="date" name="checkInDate" id="checkIn" required>
-    <input type="time" name="checkInTime" required>
-    <label for="checkOut">Check out</label>
-    <input type="date" name="checkOutDate" id="checkOut" required>
-    <input type="time" name="checkOutTime" required>
-    <input type="submit" value="Save" />
-    <input type="reset" value="Cancel" />
-</form>
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Check in</th>
-        <th>Check out</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody id="entryDisplay">
-    <tr>
-        <td colspan="3">Loading...</td>
-    </tr>
-    </tbody>
-</table>
 </body>
 </html>
