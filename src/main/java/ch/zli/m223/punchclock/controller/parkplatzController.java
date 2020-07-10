@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.validation.Valid;
 
 public class parkplatzController {
+    //Ein neuer Parkplatz wird erstellt.
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Parkplatz createParkplatz(@Valid @RequestBody Parkplatz parkplatz) {

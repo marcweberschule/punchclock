@@ -11,6 +11,8 @@ import javax.validation.Valid;
 public class AbteilungController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+
+    //Abteilung wird hier erstellt. Dazu kann gleich eine Neue nicht bereits existierende Abteilung erstellt werden.
     public Abteilung createAbteilung(@Valid @RequestBody Abteilung abteilung) {
         return Abteilung.createAbteilung(abteilung);
     }
