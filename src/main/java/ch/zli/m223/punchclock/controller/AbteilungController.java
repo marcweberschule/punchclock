@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.validation.Valid;
 
-public class abteilungController {
+public class AbteilungController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Abteilung createAbteilung(@Valid @RequestBody Abteilung abteilung) {

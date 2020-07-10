@@ -5,10 +5,53 @@ let currentEntry;
 
 
 
+const renderAbteilungen = () => {
+    const display = document.querySelector('#abteilungDisplay');
+    display.innerHTML = '';
+    entries.forEach((abteilung) => {
+        const row = document.createElement('tr');
+        row.appendChild(createCell(abteilung.id));
+        row.appendChild(createActions(abteilung));
+        display.appendChild(row);
+    });
+};
+
+
+
+const createAbteilung = (abteilung) => {
+    fetch(`${URL}/entries`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(abteilung)
+    }).then((result) => {
+        result.json().then((abteilung) => {
+            abteilung.push(abteilung);
+            renderAbteilungen();
+        });
+    });
+};
+
+const indexAbteilung = () => {
+    fetch(`${URL}/entries`, {
+        method: 'GET'
+    }).then((result) => {
+        result.json().then((abteilung) => {
+            abteilung = result;
+            renderAbteilungen();
+        });
+    });
+    renderAbteilungen();
+};
+
+
+
 
 const dateAndTimeToDate = (dateString, timeString) => {
     return new Date(`${dateString}T${timeString}`).toISOString();
 };
+
 
 // API Requests
 const createEntry = (entry) => {
@@ -137,7 +180,9 @@ const renderEntries = () => {
 
 document.addEventListener('DOMContentLoaded', function(){
     const entryForm = document.querySelector('#entryForm');
+    const abteilungForm = document.querySelector('#abteilungForm')
     entryForm.addEventListener('submit', saveForm);
     entryForm.addEventListener('reset', resetForm);
+    abteilungForm.addEventListener('submit', saveForm);
     indexEntries();
 });

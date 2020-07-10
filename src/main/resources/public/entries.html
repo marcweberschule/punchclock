@@ -13,14 +13,29 @@
     <label><b>Abteilung</b></label>
     <input type="text">
     <button type="submit">absenden</button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Abteilung</th>
+        </tr>
+        </thead>
+        <tbody id="abteilungDisplay">
+        <tr>
+            <td colspan="3">Loading...</td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 <br>
 <h1>Parkplatz</h1>
 <div>
     <label><b>Marke</b></label>
     <input type="text" placeholder="marke" name="marke" required>
-    <label><b>Fahrzeugnummer</b></label>
-    <input type="number" placeholder="000'000" name="fhzNr" required>
+    <label><b>Parkplatznummer</b></label>
+    <input type="number" placeholder="000" name="fhzNr" required>
     <button type="submit">absenden</button>
 </div>
 <br>

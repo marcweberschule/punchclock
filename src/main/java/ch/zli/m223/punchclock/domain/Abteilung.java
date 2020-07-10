@@ -10,12 +10,12 @@ public class Abteilung {
 
     private String abteilung;
 
+    @ManyToOne
+    private ApplicationUser user;
+
     public static Abteilung createAbteilung(Abteilung abteilung) {
         return abteilung;
     }
-
-    @ManyToOne
-    private ApplicationUser user;
 
     public void setUser(ApplicationUser user){ this.user = user;}
 
