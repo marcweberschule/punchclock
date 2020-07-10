@@ -15,7 +15,19 @@ const renderAbteilungen = () => {
         display.appendChild(row);
     });
 };
+const saveFormAbteilung = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const abteilung = {};
 
+    if (mode === 'create') {
+        createAbteilung(abteilung);
+    } else {
+        abteilung.id = currentAbteilung.id;
+        updateAbteilung(abteilung);
+    }
+    resetForm();
+}
 
 
 const createAbteilung = (abteilung) => {
@@ -180,9 +192,9 @@ const renderEntries = () => {
 
 document.addEventListener('DOMContentLoaded', function(){
     const entryForm = document.querySelector('#entryForm');
-    const abteilungForm = document.querySelector('#abteilungForm')
+    //const abteilungForm = document.querySelector('#abteilungForm')
     entryForm.addEventListener('submit', saveForm);
     entryForm.addEventListener('reset', resetForm);
-    abteilungForm.addEventListener('submit', saveForm);
+    //abteilungForm.addEventListener('submit', saveForm);
     indexEntries();
 });
