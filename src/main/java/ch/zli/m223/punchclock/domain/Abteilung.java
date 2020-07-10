@@ -1,9 +1,6 @@
 package ch.zli.m223.punchclock.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Abteilung {
@@ -16,6 +13,13 @@ public class Abteilung {
     public static Abteilung createAbteilung(Abteilung abteilung) {
         return abteilung;
     }
+
+    @ManyToOne
+    private ApplicationUser user;
+
+    public void setUser(ApplicationUser user){ this.user = user;}
+
+    public ApplicationUser getUser(){ return user;}
 
     public Long getId() {
         return id;
